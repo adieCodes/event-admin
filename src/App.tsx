@@ -1,12 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import './App.css';
-import EventList from './components/events/eventList/EventList';
 
 function App() {
   return (
     <div className="App">
-      <EventList />
+      <Router>
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
