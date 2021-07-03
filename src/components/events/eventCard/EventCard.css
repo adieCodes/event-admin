@@ -21,3 +21,7 @@
 .event-title {
   font-size: 1.75em;
 }
+
+.event-time {
+  margin-bottom: 0;
+}
