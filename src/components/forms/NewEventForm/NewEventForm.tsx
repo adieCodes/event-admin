@@ -1,5 +1,5 @@
-import React, { useState, ChangeEvent } from 'react';
-import LinkBtn from '../../buttons/link/LinkBtn';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import './NewEventForm.css';
 
 const eventTypes = ['--', 'football', 'cinema'] as const;
@@ -11,7 +11,7 @@ interface IEventState {
   type: EventTypes;
 }
 
-const NewEventForm = () => {
+const NewEventForm = ({ history }: RouteComponentProps) => {
   const [eventState, setEventState] = useState<IEventState>({
     name: '',
     date: '',
@@ -27,9 +27,15 @@ const NewEventForm = () => {
     }));
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    history.push('/');
+  };
+
   return (
     <div className="event-new_container">
-      <form className="event-new">
+      <form className="event-new" onSubmit={handleSubmit}>
         <h1>New Event</h1>
         <div>
           <label htmlFor="event-name">Event Name:</label>
@@ -67,7 +73,9 @@ const NewEventForm = () => {
           </select>
         </div>
         <div className="event-submit_container">
-          <LinkBtn to="/" text="Create Event" />
+          <button type="submit" className="button">
+            Create Event
+          </button>
         </div>
       </form>
       <div className="event-filler">
@@ -78,4 +86,4 @@ const NewEventForm = () => {
   );
 };
 
-export default NewEventForm;
+export default withRouter(NewEventForm);

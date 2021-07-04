@@ -19,5 +19,11 @@ describe('Add Event', () => {
     cy.get('#event-date').should('have.value', eventDate);
 
     cy.get('#event-types').select('football').should('have.value', 'football');
+
+    cy.contains(/Create Event/i).click();
+
+    cy.url().should('not.contain', 'add');
   });
+
+  // TODO: Test form can only be submitted when required fields are completed
 });
