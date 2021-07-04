@@ -9,7 +9,7 @@ const EventList: FC = () => {
   return (
     <div className="eventList">
       {events.map((e) => (
-        <EventCard event={e} />
+        <EventCard event={e} key={e.id} />
       ))}
     </div>
   );

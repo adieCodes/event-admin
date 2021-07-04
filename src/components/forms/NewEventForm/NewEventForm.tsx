@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { EventContext } from '../../../context/EventContext';
 import './NewEventForm.css';
@@ -9,6 +10,7 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
   const { addEvent } = useContext(EventContext);
 
   const [eventState, setEventState] = useState<IEvent>({
+    id: uuidv4(),
     name: '',
     date: '',
     type: eventTypes[0],
