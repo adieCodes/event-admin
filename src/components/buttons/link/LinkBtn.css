@@ -1,0 +1,13 @@
+.linkBtn {
+  background-color: #426dd1;
+  border-radius: 0.25rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  color: #f6f7f9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.linkBtn.linkBtn_danger {
+  background-color: #be614e;
+}

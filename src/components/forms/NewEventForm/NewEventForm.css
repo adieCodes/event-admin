@@ -1,0 +1,48 @@
+.event-new_container {
+  margin: 5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.event-new {
+  min-width: 300px;
+  background-color: #ffffff;
+  border-radius: 1.75rem 0 0 1.75rem;
+  padding: 2.5rem;
+}
+
+.event-new div {
+  margin: 2rem 0;
+}
+
+.event-new label {
+  font-weight: bold;
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.event-new input,
+.event-new select {
+  box-sizing: border-box;
+  border: none;
+  background-color: #d6d6d6;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.event-filler {
+  padding: 3.5rem;
+  border-radius: 0 1.75rem 1.75rem 0;
+  background-color: #5b8bf6;
+}
+
+.event-filler h1 {
+  font-size: 1.25rem;
+  color: #f6f7f9;
+}
+
+.event-emoji_lg {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 10rem;
+}
