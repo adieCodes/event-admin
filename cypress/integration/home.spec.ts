@@ -27,4 +27,12 @@ describe('Home page', () => {
     });
     cy.get('.event-type').contains('⚽️');
   });
+
+  it('Can return home via nav', () => {
+    cy.contains(/Add Event/).click();
+    cy.url().should('contain', '/add');
+
+    cy.contains(/EventList/i).click();
+    cy.url().should('not.contain', '/add');
+  });
 });
