@@ -1,4 +1,4 @@
-import React, { MouseEvent, useContext } from 'react';
+import React, { useContext } from 'react';
 import { EventContext } from '../../../context/EventContext';
 import './HomeFilter.css';
 
