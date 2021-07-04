@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 interface IEventContextState {
   events: IEvent[];
   addEvent: (event: IEvent) => void;
+  filterEvents: ({ type }: IEventFilters) => void;
 }
 
 const contextDefaultValues: IEventContextState = {
@@ -22,6 +23,7 @@ const contextDefaultValues: IEventContextState = {
     },
   ],
   addEvent: () => {},
+  filterEvents: () => {},
 };
 
 export const EventContext =
@@ -34,11 +36,36 @@ const EventProvider: FC = ({ children }) => {
     setEvents((events) => [...events, newEvent]);
   };
 
+  const filterEvents = ({ type }: IEventFilters) => {
+    const todayInMS = new Date().valueOf();
+
+    if (type === 'all') {
+      setEvents(contextDefaultValues.events);
+    } else if (type === 'prev') {
+      const filteredEvents = contextDefaultValues.events.filter((e) => {
+        const eventDateInMS = new Date(e.date).valueOf();
+
+        return eventDateInMS <= todayInMS;
+      });
+
+      setEvents(filteredEvents);
+    } else {
+      const filteredEvents = contextDefaultValues.events.filter((e) => {
+        const eventDateInMS = new Date(e.date).valueOf();
+
+        return eventDateInMS >= todayInMS;
+      });
+
+      setEvents(filteredEvents);
+    }
+  };
+
   return (
     <EventContext.Provider
       value={{
         events,
         addEvent,
+        filterEvents,
       }}
     >
       {children}
