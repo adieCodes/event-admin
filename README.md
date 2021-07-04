@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# EventList
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) along with TypeScript. I decided to use React and TypeScript as:
+
+1. The requirement for a single-page app and the obvious value of components for the repeated UI elements (particularly the event cards) seemed to be a good fit for React.
+2. Having started to use TypeScript I am really seeing the benefits of Static Typing, namely:
+   - Identifying potential bugs through type checking during compilation
+   - Better documentation of the code
+   - Integration with Visual Studio Code to improve Intellisense, Refactoring and Tooltips
+
+## Testing
+
+Integration tests are written using [Cypress](https://www.cypress.io/). I've found Cypress tests to be easy to write and helpful to my workflow, allowing me to write tests before my code and think about how the user will interact with the application.
+
+Instructions on how to run the tests are included in the Available Scripts section below.
 
 ## Available Scripts
 
@@ -29,18 +41,8 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+### `yarn run cypress:open`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Note**, this requires `yarn start` to be running in a different terminal window.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+After this command is executed the Cypress test runner opens. Allowing you to run test files individually or all as a series.
