@@ -8,6 +8,7 @@ import React, {
 import { v4 as uuidv4 } from 'uuid';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { EventContext } from '../../../context/EventContext';
+import LinkBtn from '../../buttons/link/LinkBtn';
 import './NewEventForm.css';
 
 const eventTypes = ['--', 'football', 'cinema'] as const;
@@ -89,6 +90,7 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
           <button type="submit" className="button" disabled={formDisabled}>
             Create Event
           </button>
+          <LinkBtn to="/" text="Cancel" danger={true} />
         </div>
       </form>
       <div className="event-filler">

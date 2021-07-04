@@ -7,3 +7,7 @@
   font-weight: bold;
   text-decoration: none;
 }
+
+.linkBtn.linkBtn_danger {
+  background-color: #be614e;
+}

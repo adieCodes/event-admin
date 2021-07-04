@@ -1,12 +1,14 @@
 describe('Add Event', () => {
-  it('Allows creation of new event', () => {
-    const eventName = 'Test Event';
-    const eventDate = '2021-12-25';
-
+  beforeEach(() => {
     cy.visit('http://localhost:3000');
 
     cy.contains(/Add Event/i).click();
     cy.url().should('contain', 'add');
+  });
+
+  it('Allows creation of new event', () => {
+    const eventName = 'Test Event';
+    const eventDate = '2021-12-25';
 
     cy.contains(/Create Event/i).should('be.disabled');
 
@@ -35,5 +37,9 @@ describe('Add Event', () => {
     cy.contains(eventName).should('exist');
   });
 
-  // TODO: Can cancel out of form
+  it('Can cancel out of form', () => {
+    cy.contains(/Cancel/i).click();
+
+    cy.url().should('not.contain', 'add');
+  });
 });
