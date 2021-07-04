@@ -23,6 +23,8 @@ describe('Add Event', () => {
     cy.contains(/Create Event/i).click();
 
     cy.url().should('not.contain', 'add');
+
+    cy.contains(eventName).should('exist');
   });
 
   // TODO: Test form can only be submitted when required fields are completed

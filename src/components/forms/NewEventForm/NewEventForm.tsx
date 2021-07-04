@@ -1,18 +1,14 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import { EventContext } from '../../../context/EventContext';
 import './NewEventForm.css';
 
 const eventTypes = ['--', 'football', 'cinema'] as const;
-type EventTypes = typeof eventTypes[number];
-
-interface IEventState {
-  name: string;
-  date: string;
-  type: EventTypes;
-}
 
 const NewEventForm = ({ history }: RouteComponentProps) => {
-  const [eventState, setEventState] = useState<IEventState>({
+  const { addEvent } = useContext(EventContext);
+
+  const [eventState, setEventState] = useState<IEvent>({
     name: '',
     date: '',
     type: eventTypes[0],
@@ -30,6 +26,7 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    addEvent(eventState);
     history.push('/');
   };
 
