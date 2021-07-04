@@ -8,10 +8,9 @@ import React, {
 import { v4 as uuidv4 } from 'uuid';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { EventContext } from '../../../context/EventContext';
+import { eventEmoji } from '../../../lib/eventType';
 import LinkBtn from '../../buttons/link/LinkBtn';
 import './NewEventForm.css';
-
-const eventTypes = ['--', 'football', 'cinema'];
 
 const NewEventForm = ({ history }: RouteComponentProps) => {
   const { addEvent } = useContext(EventContext);
@@ -20,14 +19,14 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
     id: uuidv4(),
     name: '',
     date: '',
-    type: eventTypes[0],
+    type: '--',
   });
   const [formDisabled, setFormStatus] = useState(true);
 
   useEffect(() => {
     const { name, date, type } = eventState;
 
-    const isFormComplete = name === '' || date === '' || type === eventTypes[0];
+    const isFormComplete = name === '' || date === '' || type === '--';
     setFormStatus(isFormComplete);
   }, [eventState]);
 
@@ -79,7 +78,7 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
             onChange={handleChange}
             value={eventState.type}
           >
-            {eventTypes.map((e) => (
+            {Object.keys(eventEmoji).map((e) => (
               <option value={e} key={e}>
                 {e}
               </option>
