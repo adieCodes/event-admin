@@ -4,3 +4,12 @@
   background-color: #f6f7f9;
   padding: 2rem 1rem;
 }
+
+.button {
+  background-color: #426dd1;
+  border-radius: 0.25rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  color: #f6f7f9;
+  font-weight: bold;
+}
