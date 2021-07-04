@@ -15,3 +15,7 @@ interface IEvent {
 interface IEventListProps {
   events: IEvent[];
 }
+
+interface IEventFilters {
+  type: 'all' | 'prev' | 'future';
+}
