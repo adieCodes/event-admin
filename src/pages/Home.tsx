@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
-import AddEvent from '../components/buttons/addEvent/AddEvent';
+import LinkBtn from '../components/buttons/link/LinkBtn';
 import EventList from '../components/events/eventList/EventList';
 
 const Home = () => (
   <>
-    <AddEvent />
+    <LinkBtn to="/add" text="Add Event" />
     <EventList />
   </>
 );
