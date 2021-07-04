@@ -14,6 +14,10 @@ Integration tests are written using [Cypress](https://www.cypress.io/). I've fou
 
 Instructions on how to run the tests are included in the Available Scripts section below.
 
+## Deployment
+
+The app is deployed when code is pushed to the `main` branch through [Netlify](https://www.netlify.com/). You can find the deployed version [here](https://jovial-williams-c3323e.netlify.app/).
+
 ## Available Scripts
 
 In the project directory, you can run:
