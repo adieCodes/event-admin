@@ -9,14 +9,12 @@ interface ILinkBtnProps {
 }
 
 const LinkBtn = (props: ILinkBtnProps) => (
-  <div className="linkBtn_container">
-    <Link
-      to={props.to}
-      className={props.danger ? 'linkBtn linkBtn_danger' : 'linkBtn'}
-    >
-      {props.text}
-    </Link>
-  </div>
+  <Link
+    to={props.to}
+    className={props.danger ? 'linkBtn linkBtn_danger' : 'linkBtn'}
+  >
+    {props.text}
+  </Link>
 );
 
 export default LinkBtn;
