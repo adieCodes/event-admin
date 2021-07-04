@@ -5,6 +5,8 @@
   flex: 0 0 300px;
   border-radius: 1.75rem;
   padding: 1.5rem 1.25rem;
+  text-decoration: none;
+  color: black;
 }
 
 .event-type {

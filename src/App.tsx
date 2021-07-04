@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import EventProvider from './context/EventContext';
 import Home from './pages/Home';
 import NewEvent from './pages/NewEvent';
+import Event from './pages/Event';
 import './App.css';
 
 const App = () => (
@@ -12,6 +13,9 @@ const App = () => (
         <Switch>
           <Route path="/add">
             <NewEvent />
+          </Route>
+          <Route path="/event/:id">
+            <Event />
           </Route>
           <Route path="/">
             <Home />
