@@ -1,11 +1,15 @@
-const eventTypes = ['--', 'football', 'cinema'];
-type EventTypes = typeof eventTypes[number];
+interface EventEmoji {
+  '--': '--';
+  football: '⚽️';
+  cinema: '🎥';
+}
 
+type EventTypes = keyof EventEmoji;
 interface IEvent {
   id: string;
   name: string;
   date: string;
-  type: EventTypes;
+  type: keyof EventEmoji;
 }
 
 interface IEventListProps {
