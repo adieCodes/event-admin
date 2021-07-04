@@ -4,14 +4,15 @@ import './LinkBtn.css';
 
 interface ILinkBtnProps {
   to: string;
-  class: string;
   text: string;
 }
 
 const LinkBtn = (props: ILinkBtnProps) => (
-  <Link to={props.to} className={props.class}>
-    {props.text}
-  </Link>
+  <div className="linkBtn_container">
+    <Link to={props.to} className="linkBtn">
+      {props.text}
+    </Link>
+  </div>
 );
 
 export default LinkBtn;
