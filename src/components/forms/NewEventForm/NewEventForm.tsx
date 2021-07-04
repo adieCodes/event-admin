@@ -11,7 +11,7 @@ import { EventContext } from '../../../context/EventContext';
 import LinkBtn from '../../buttons/link/LinkBtn';
 import './NewEventForm.css';
 
-const eventTypes = ['--', 'football', 'cinema'] as const;
+const eventTypes = ['--', 'football', 'cinema'];
 
 const NewEventForm = ({ history }: RouteComponentProps) => {
   const { addEvent } = useContext(EventContext);
