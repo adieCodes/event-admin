@@ -1,4 +1,10 @@
-import React, { useState, ChangeEvent, FormEvent, useContext } from 'react';
+import React, {
+  useState,
+  ChangeEvent,
+  FormEvent,
+  useContext,
+  useEffect,
+} from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { EventContext } from '../../../context/EventContext';
@@ -15,6 +21,14 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
     date: '',
     type: eventTypes[0],
   });
+  const [formDisabled, setFormStatus] = useState(true);
+
+  useEffect(() => {
+    const { name, date, type } = eventState;
+
+    const isFormComplete = name === '' || date === '' || type === eventTypes[0];
+    setFormStatus(isFormComplete);
+  }, [eventState]);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -72,7 +86,7 @@ const NewEventForm = ({ history }: RouteComponentProps) => {
           </select>
         </div>
         <div className="event-submit_container">
-          <button type="submit" className="button">
+          <button type="submit" className="button" disabled={formDisabled}>
             Create Event
           </button>
         </div>

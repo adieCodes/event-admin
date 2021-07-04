@@ -8,17 +8,25 @@ describe('Add Event', () => {
     cy.contains(/Add Event/i).click();
     cy.url().should('contain', 'add');
 
+    cy.contains(/Create Event/i).should('be.disabled');
+
     cy.contains(/Event Name/i)
       .click()
       .type(eventName);
     cy.get('#event-name').should('have.value', eventName);
+
+    cy.contains(/Create Event/i).should('be.disabled');
 
     cy.contains(/Event Date/i)
       .click()
       .type(eventDate);
     cy.get('#event-date').should('have.value', eventDate);
 
+    cy.contains(/Create Event/i).should('be.disabled');
+
     cy.get('#event-types').select('football').should('have.value', 'football');
+
+    cy.contains(/Create Event/i).should('not.be.disabled');
 
     cy.contains(/Create Event/i).click();
 
@@ -27,5 +35,5 @@ describe('Add Event', () => {
     cy.contains(eventName).should('exist');
   });
 
-  // TODO: Test form can only be submitted when required fields are completed
+  // TODO: Can cancel out of form
 });
